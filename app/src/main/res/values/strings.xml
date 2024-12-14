@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Habit Tracker</string>
+    <string name="headline_main">Ваши привычки</string>
+    <string name="title_goal">Цель</string>
+    <string name="title_time_start_end">Время начала и окончания</string>
+    <string name="start">Начать</string>
+    <string name="not_yet_started">ещё не начато</string>
+    <string name="not_yet_finished">ещё не закончено</string>
+
+    <string name="background_hint">background plant</string>
+    <string name="icon_back">back</string>
+
+    <string name="headline_detail">Чтение</string>
+    <string name="goal_time">30 мин.</string>
+    <string name="start_time">10 дек. 13:55</string>
+    <string name="finish_time">10 дек. 14:13</string>
+
+    <string name="title_activity_habit_list">HabitListActivity</string>
+
+    <string name="error_fetch">Не удалось получить данные с сервера</string>
+    <string name="update_fetch">Обновление данных…</string>
+</resources>

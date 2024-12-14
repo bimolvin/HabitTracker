@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/md_theme_surface">
+
+    <!--BACKGROUND-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/plant_in_a_pot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="40dp"
+        android:contentDescription="@string/background_hint" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/small_green_plant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="50dp"
+        tools:layout_editor_absoluteX="40dp"
+        android:contentDescription="@string/background_hint" />
+
+    <!--BODY-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_back"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="@string/icon_back"
+            app:icon="@drawable/arrow_back"
+            app:iconSize="24dp"
+            app:iconTint="@color/md_theme_onSurface" />
+
+        <!--TITLE-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/habit_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/headline_detail"
+            android:textAlignment="center"
+            android:textColor="@color/md_theme_secondary"
+            android:textSize="64sp"
+            app:fontFamily="@font/cormorant_unicase"/>
+
+        <!--Ui component for our pie chart-->
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="340dp"
+            android:layout_height="340dp"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:textAlignment="textStart"
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/goal_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_goal"
+                android:textColor="@color/md_theme_onSurface"
+                android:textSize="24sp"
+                app:fontFamily="@font/cormorant_unicase" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:minHeight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="0dp"
+                    app:icon="@drawable/target"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/md_theme_onSurface" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/goal_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goal_time"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_time_start_end"
+                android:textColor="@color/md_theme_onSurface"
+                android:textSize="24sp"
+                android:paddingTop="16dp"
+                app:fontFamily="@font/cormorant_unicase" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:clickable="false"
+                    android:minHeight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="0dp"
+                    app:icon="@drawable/play_arrow"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/md_theme_onSurface"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/start_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start_time"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Button.IconButton"
+                    android:clickable="false"
+                    android:minHeight="20dp"
+                    android:paddingStart="0dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="0dp"
+                    app:icon="@drawable/sports_score"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/md_theme_onSurface"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/finish_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/finish_time"
+                    android:textColor="@color/md_theme_onSurface"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
