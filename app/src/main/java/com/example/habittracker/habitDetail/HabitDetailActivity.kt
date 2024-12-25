@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.activity.viewModels
 import com.example.habittracker.R
+import com.example.habittracker.data.DataSharedPreferences
 import com.example.habittracker.data.Habit
 import com.example.habittracker.habitList.HabitListActivity
 import com.example.habittracker.json.convertGoalToInt
@@ -26,6 +27,7 @@ class HabitDetailActivity : AppCompatActivity() {
     private val habitDetailViewModel by viewModels<HabitDetailViewModel> {
         HabitDetailViewModelFactory()
     }
+    private lateinit var prefs: DataSharedPreferences
     private val parser = SimpleDateFormat(
         "dd MMM kk:mm", Locale("ru", "RU")
     )
@@ -33,6 +35,7 @@ class HabitDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_habit_detail)
+        prefs = DataSharedPreferences(this)
 
         var currentHabitId: Long? = null
 
@@ -42,6 +45,7 @@ class HabitDetailActivity : AppCompatActivity() {
         val startTime: TextView = findViewById(R.id.start_time)
         val finishTime: TextView = findViewById(R.id.finish_time)
         val pieChart: PieChart = findViewById(R.id.pieChart)
+        val buttonReset: Button = findViewById(R.id.button_reset)
 
         val buttonBack : Button = findViewById(R.id.button_back)
 
@@ -51,7 +55,7 @@ class HabitDetailActivity : AppCompatActivity() {
         }
 
         /* If currentHabitId is not null, get corresponding habit and set name, pie chart and
-        description */
+        description. */
         currentHabitId?.let {
             val currentHabit = habitDetailViewModel.getHabitForId(it)
             currentHabit?.let { habit ->
@@ -65,6 +69,18 @@ class HabitDetailActivity : AppCompatActivity() {
                 goalTime.text = habit.goal
                 startTime.text = formatStart(habit.startedAt)
                 finishTime.text = formatFinish(habit.completedAt)
+
+                /* Reset all progress. */
+                buttonReset.setOnClickListener{_ ->
+                    habit.startedAt = null
+                    habit.completedAt = null
+                    habit.isCompleted = false
+                    prefs.setHabit(habit)
+
+                    // reload page
+                    finish()
+                    startActivity(intent)
+                }
             }
             /* Go back to habit list. */
             buttonBack.setOnClickListener {_ ->

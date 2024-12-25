@@ -25,7 +25,7 @@ var DateTimeAdapter: Any = object : Any() {
 }
 
 fun getSimpleDateFormat() : SimpleDateFormat{
-    val pattern = "yyyy-mm-dd'T'HH:mm:ss'Z'"
+    val pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     return SimpleDateFormat(pattern, Locale("ru", "RU"))
 }
 

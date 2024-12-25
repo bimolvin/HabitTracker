@@ -186,5 +186,19 @@
                     android:textSize="16sp"/>
             </LinearLayout>
         </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/button_reset"
+            style="Widget.Material3.ExtendedFloatingActionButton.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/md_theme_tertiary"
+            android:text="@string/reset_label"
+            android:textColor="@color/md_theme_onTertiary"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:stateListAnimator="@null"
+            android:elevation="0dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

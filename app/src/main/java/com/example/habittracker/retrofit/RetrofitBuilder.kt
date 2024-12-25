@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitBuilder {
-    private const val baseUrl = "https://mej1g.wiremockapi.cloud/"
+    private const val baseUrl = "https://v78qr.wiremockapi.cloud/"
 
     private val moshi: Moshi = Moshi.Builder()
         .add(DateTimeAdapter)

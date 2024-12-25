@@ -13,11 +13,11 @@ import com.example.habittracker.data.Habit
 import com.example.habittracker.json.convertGoalToInt
 import java.util.Calendar
 
-class HabitsAdapter(private val onClick: (Habit) -> Unit) :
+class HabitsAdapter(private val onClick: (Habit) -> Unit, private val onCheck: (Habit) -> Unit) :
     ListAdapter<Habit, HabitsAdapter.HabitViewHolder>(HabitDiffCallback) {
 
     /* ViewHolder for Habit, takes in the inflated view and the onClick behavior. */
-    class HabitViewHolder(itemView: View, onClick: (Habit) -> Unit) :
+    class HabitViewHolder(itemView: View, onClick: (Habit) -> Unit, onCheck: (Habit) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
         private val habitTextView: TextView = itemView.findViewById(R.id.habit)
         private val checkbox: CheckBox = itemView.findViewById(R.id.checkbox)
@@ -46,6 +46,7 @@ class HabitsAdapter(private val onClick: (Habit) -> Unit) :
                     } else {
                         it.completedAt = null
                     }
+                    onCheck(it)
                 }
             }
         }
@@ -66,7 +67,7 @@ class HabitsAdapter(private val onClick: (Habit) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HabitViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.habit_item, parent, false)
-        return HabitViewHolder(view, onClick)
+        return HabitViewHolder(view, onClick, onCheck)
     }
 
     /* Gets current habit and uses it to bind view. */

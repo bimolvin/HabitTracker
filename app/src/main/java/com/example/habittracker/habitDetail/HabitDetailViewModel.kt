@@ -10,6 +10,11 @@ class HabitDetailViewModel(private val dataSource: DataSource) : ViewModel() {
     fun getHabitForId(id: Long) : Habit? {
         return dataSource.getHabitForId(id)
     }
+
+    /* Queries datasource to edit a habit. */
+    fun editHabit(habit: Habit) {
+        dataSource.editHabit(habit)
+    }
 }
 
 class HabitDetailViewModelFactory : ViewModelProvider.Factory {

@@ -6,6 +6,7 @@
     <string name="start">Начать</string>
     <string name="not_yet_started">ещё не начато</string>
     <string name="not_yet_finished">ещё не закончено</string>
+    <string name="reset_label">Сброс</string>
 
     <string name="background_hint">background plant</string>
     <string name="icon_back">back</string>
